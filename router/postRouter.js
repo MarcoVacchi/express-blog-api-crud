@@ -6,7 +6,7 @@ const router = express.Router()
 console.log(posts);
 router.get("/",(req, res) =>{
 
-    res.send("mannaggiacristo");
+    res.send("mannaggio");
 
 });
 
