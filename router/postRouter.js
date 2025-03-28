@@ -1,14 +1,22 @@
 const posts = require("../data/posts");
 const express = require("express");
-const router = express.Router()
+const router = express.Router();
+const routerControllers = require("../controllers/controllers.posts");
 
 
-console.log(posts);
-router.get("/",(req, res) =>{
+router.get("/",(routerControllers.index));
 
-    res.send("mannaggio");
+router.get("/:id",(routerControllers.show));
 
-});
+router.delete("/:id",(routerControllers.destroy));
 
+//console.log(posts);
+
+// router.get("/:id",(req, res) =>{
+    
+//     const { id } = req.params;
+//     res.send(`modifica tutto il dolce alla posizione ${id}`);
+
+// });   
 
 module.exports = router;
