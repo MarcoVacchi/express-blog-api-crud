@@ -20,12 +20,28 @@ function show(req, res) {
                 : res.json({
                       status : 404,
                       error : "Id non trovato",
-                      message: "Inserisci un id valido"
+                      message: "Inserisci un id valido!"
                     });
 };
 
 
 function destroy(req, res) {
+    const currentId = Number(req.params.id);
+      
+    const currentPost = posts.findIndex(posts => posts.id === currentId);
+
+    if(currentPost !== -1) {
+         posts.splice(currentPost,1)
+         res.status(204).json()
+        console.log(posts);
+    } else {
+        res.json({
+        status : 404,
+        error : "Id non trovato",
+        message : "Inserisci un Id valido!"
+  })}
+                        
+                        
     
 };
 
