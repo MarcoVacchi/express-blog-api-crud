@@ -4,6 +4,11 @@ const port = 3000;
 const router = require("./router/postRouter");
 
 app.use(express.static("public"));
+
+app.use(express.json());
+
+
+
 app.use("/postRouter", router);
 
 //console.log("ciao");

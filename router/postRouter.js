@@ -10,6 +10,9 @@ router.get("/:id",(routerControllers.show));
 
 router.delete("/:id",(routerControllers.destroy));
 
+router.post("/",(routerControllers.store));
+
+
 //console.log(posts);
 
 // router.get("/:id",(req, res) =>{
