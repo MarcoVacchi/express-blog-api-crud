@@ -56,7 +56,24 @@ function index(req, res) {
 
 // per aggiungere un oggetto (post);
 
+// function store(res, req) {
 
+//   // const newId = posts[posts.length-1].id + 1;
+//   // const { title, content, image, tags } = req.body;
+//   console.log("creazione di un nuovo")
+//   // const newPosts = {
+//   //   id: newId,
+//   //   title: req.body.title,
+//   //   content: req.body.content,
+//   //   image: req.body.image,
+//   //   tags: req.body.tags // HO PERSO UN'ORA PERCHE NON MI SONO ACCORTO CHE AVEVO INVERTITO I PARAMETRI :)
+//   // }
+
+//   // posts.push(newPosts);
+//   // res.json(posts);
+
+ 
+// };
 
 function store(req, res) {
   // console.log(req.body);
@@ -82,11 +99,30 @@ function store(req, res) {
   res.json(posts);
 }
 
+function update(req, res) {
+  const currentId = Number(req.params.id);
+      
+  const currentPost = posts.find(posts => posts.id === currentId);
+  currentPost.title = req.body.title;
+  currentPost.content = req.body.content;
+  currentPost.image = req.body.image;
+  currentPost.tags = req.body.tags;
+
+  if(currentPost !== -1) {
+    console.log(currentPost)
+    res.json(currentPost)
+  } else { res.status(204).json({
+        status: 404,
+        error: "invalid id",
+        message: "inserisci un id valido"
+  })
+  };
+}
+
 // per aggiornare un oggetto già esistente (put);
 
-
 // {index, show, store, update, modify, destroy};
-module.exports = { index, show, destroy, store };
+module.exports = { index, show, destroy, store, update };
 
 
 // {

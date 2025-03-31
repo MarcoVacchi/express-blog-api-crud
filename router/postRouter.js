@@ -12,6 +12,8 @@ router.delete("/:id",(routerControllers.destroy));
 
 router.post("/",(routerControllers.store));
 
+router.put("/:id",(routerControllers.update));
+
 
 //console.log(posts);
 
