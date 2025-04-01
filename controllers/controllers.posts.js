@@ -44,6 +44,7 @@ function destroy(req, res) {
 
 // bonus;
 function index(req, res) {
+    ciao();
     if(req.query.tags){
         console.log("filtro per ingrediente");
 
